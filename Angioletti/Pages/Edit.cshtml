@@ -1,0 +1,51 @@
+﻿@page
+@model Angioletti.Pages.EditModel
+@{
+    ViewData["Title"] = "Modifica";
+}
+<h4>MODIFICA - @Model.audio.Titolo</h4>
+<br />
+<form method="post">
+    <input type="hidden" value="@Model.audio.Id" asp-for="@Model.audio.Id" />
+    <p>Titolo:</p>
+    <input type="text" asp-for="@Model.audio.Titolo" value="@Model.audio.Titolo" />
+    <span asp-validation-for="@Model.audio.Titolo" class="text-danger"></span>
+    <br />
+
+    <p>Artista:</p>
+    <input type="text" asp-for="@Model.audio.Artista" value="@Model.audio.Artista" />
+    <span asp-validation-for="@Model.audio.Artista" class="text-danger"></span>
+    <br />
+
+    <p>Album:</p>
+    <input type="text" asp-for="@Model.audio.Album" value="@Model.audio.Album" />
+    <span asp-validation-for="@Model.audio.Album" class="text-danger"></span>
+    <br />
+
+    <p>Anno di pubblicazione:</p>
+    <input type="number" asp-for="@Model.audio.Publicazione" value="@Model.audio.Publicazione" />
+    <span asp-validation-for="@Model.audio.Publicazione" class="text-danger"></span>
+    <br />
+
+    <p>Genere:</p>
+    <select asp-for="@Model.audio.Genere">
+        <option>Classica</option>
+        <option>Classica</option>
+        <option>Dance</option>
+        <option>Pop</option>
+        <option>Rap</option>
+        <option>Raggae</option>
+        <option>Rock</option>
+    </select>
+    <span asp-validation-for="@Model.audio.Genere" class="text-danger"></span>
+    <br />
+
+    <p>Durata:</p>
+    <input type="number" asp-for="@Model.audio.Durata" value="@Model.audio.Durata" />
+    <span asp-validation-for="@Model.audio.Durata" class="text-danger"></span>
+    <br />
+    <input type="submit" value="Modifica" />
+</form>
+
+<br />
+<a asp-page="Read">Torna alla visualizzazione</a>

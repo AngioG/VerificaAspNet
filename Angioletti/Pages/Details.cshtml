@@ -1,0 +1,18 @@
+﻿@page
+@model Angioletti.Pages.DetailsModel
+@{
+    ViewData["Title"] = "Dettagli";
+}
+<h4>DETTAGLI - @Model.audio.Titolo</h4>
+<br />
+
+<h5>Id: @Model.audio.Id</h5>
+<h5>Titolo Brano: @Model.audio.Titolo</h5>
+<h5>Artista @Model.audio.Artista</h5>
+<h5>Nome Album: @Model.audio.Album</h5>
+<h5>Anno di pubblicazione del brano: @Model.audio.Publicazione</h5>
+<h5>Genere: @Model.audio.Genere</h5>
+<h5>Durata: @Model.audio.Durata secondi</h5>
+
+<br />
+<a asp-page="Read">Torna alla visualizzazione</a>

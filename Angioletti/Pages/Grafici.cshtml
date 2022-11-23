@@ -1,0 +1,36 @@
+﻿@page
+@model Angioletti.Pages.GraficiModel
+@{
+    ViewData["Title"] = "Grafici";
+    var Valori = new int[]
+    {
+        Model.eleAudio.Where(a => a.Publicazione == (Model.cercato == 0 ? a.Publicazione : Model.cercato)).Where(a => a.Genere == "Classica").Count(),
+        Model.eleAudio.Where(a => a.Publicazione == (Model.cercato == 0 ? a.Publicazione : Model.cercato)).Where(a => a.Genere == "dance").Count(),
+        Model.eleAudio.Where(a => a.Publicazione == (Model.cercato == 0 ? a.Publicazione : Model.cercato)).Where(a => a.Genere == "Pop").Count(),
+        Model.eleAudio.Where(a => a.Publicazione == (Model.cercato == 0 ? a.Publicazione : Model.cercato)).Where(a => a.Genere == "Rap").Count(),
+        Model.eleAudio.Where(a => a.Publicazione == (Model.cercato == 0 ? a.Publicazione : Model.cercato)).Where(a => a.Genere == "Raggae").Count(),
+        Model.eleAudio.Where(a => a.Publicazione == (Model.cercato == 0 ? a.Publicazione : Model.cercato)).Where(a => a.Genere == "Rock").Count()
+    };
+}
+<h4>Grafici</h4>
+<br />
+
+<form method="post">
+    <p>Anno (0 si riferisce a tutto il database):</p>
+    <input type="number" asp-for="@Model.cercato" value="@Model.cercato" />
+
+    <input type="submit" value="Cerca" />
+</form>
+<br />
+<p>Resoconto:</p>
+<p>Classica: @Valori[0]; Dance: @Valori[1]; Pop: @Valori[2]; Rap: @Valori[3]; Raggae: @Valori[4]; Rock: @Valori[5]</p>
+<br />
+<br />
+@{
+    /*var myChart = new Chart(width: 600, height: 400)
+       .AddTitle("Employees")
+       .AddSeries(chartType: "column",
+          xValue: new[] { "Classica", "Dance", "Pop", "Rap", "Raggae", "Rock" },
+          yValues: Valori)
+       .Write();*/
+}

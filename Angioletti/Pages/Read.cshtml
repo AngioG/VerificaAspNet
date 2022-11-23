@@ -1,0 +1,30 @@
+﻿@page
+@model Angioletti.Pages.ReadModel
+@{
+    ViewData["Title"] = "Visualizza";
+}
+<h4>VISUALIZZA</h4>
+<br />
+<table class="table">
+    <tr>
+        <th>Titolo</th>
+        <th>Autore</th>
+        <th>Genere</th>
+        <th>Anno</th>
+        <th>Modifica</th>
+    </tr>
+    @foreach (var a in Model.eleAudio)
+    {
+        <tr>
+            <td>@a.Titolo</td>
+            <td>@a.Artista</td>
+            <td>@a.Genere</td>
+            <td>@a.Publicazione</td>
+            <td>
+                <a asp-page="Details" asp-route-id="@a.Id">Dettagli</a> |
+                <a asp-page="Edit" asp-route-id="@a.Id">Modifica</a> |
+                <a asp-page="Delete" asp-route-id="@a.Id">Cancella</a>
+            </td>
+        </tr>
+    }
+</table>

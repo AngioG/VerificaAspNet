@@ -1,0 +1,16 @@
+﻿@page
+@model Angioletti.Pages.DeleteModel
+@{
+    ViewData["Title"] = "Cancella";
+}
+<h4>DETTAGLI - @Model.audio.Titolo</h4>
+<br />
+
+<form method="post">
+    <p>Eliminare il brano @Model.audio.Titolo con id @Model.audio.Id ?</p>
+    <br />
+    <input type="submit" class="alert-danger" value="Elimina"/>
+</form>
+
+<br />
+<a asp-page="Read">Torna alla visualizzazione</a>

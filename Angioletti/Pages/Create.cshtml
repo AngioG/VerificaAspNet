@@ -1,0 +1,50 @@
+﻿@page
+@model Angioletti.Pages.CreateModel
+@{
+    ViewData["Title"] = "Inserisci";
+}
+<h4>INSERIMENTO</h4>
+<br />
+<form method="post">
+    <p>Titolo:</p>
+    <input type="text" asp-for="@Model.audio.Titolo" />
+    <span asp-validation-for="@Model.audio.Titolo" class="text-danger"></span>
+    <br />
+
+    <p>Artista:</p>
+    <input type="text" asp-for="@Model.audio.Artista" />
+    <span asp-validation-for="@Model.audio.Artista" class="text-danger"></span>
+    <br />
+
+    <p>Album:</p>
+    <input type="text" asp-for="@Model.audio.Album" />
+    <span asp-validation-for="@Model.audio.Album" class="text-danger"></span>
+    <br />
+
+    <p>Anno di pubblicazione:</p>
+    <input type="number" asp-for="@Model.audio.Publicazione" />
+    <span asp-validation-for="@Model.audio.Publicazione" class="text-danger"></span>
+    <br />
+
+    <p>Genere:</p>
+    <select asp-for="@Model.audio.Genere">
+        <option>Classica</option>
+        <option>Classica</option>
+        <option>Dance</option>
+        <option>Pop</option>
+        <option>Rap</option>
+        <option>Raggae</option>
+        <option>Rock</option>
+    </select>
+    <span asp-validation-for="@Model.audio.Genere" class="text-danger"></span>
+    <br />
+
+    <p>Durata:</p>
+    <input type="number" asp-for="@Model.audio.Durata" />
+    <span asp-validation-for="@Model.audio.Durata" class="text-danger"></span>
+    <br />
+    <input type="submit" value="Inserisci" />
+</form>
+
+<br />
+<a asp-page="Index">Torna alla Home Page</a>

@@ -1,0 +1,36 @@
+﻿@page
+@model Angioletti.Pages.SearchModel
+@{
+    ViewData["Title"] = "Ricerca Artista";
+}
+<h4>Ricerca artista</h4>
+<br />
+
+<form method="post">
+    <p>Nome dell'artista da cercare:</p>
+    <input type="text" asp-for="@Model.cercato" />
+
+    <input type="submit" value="Cerca" />
+</form>
+
+<table class="table">
+    <tr>
+        <th>Titolo</th>
+        <th>Autore</th>
+        <th>Genere</th>
+        <th>Modifica</th>
+    </tr>
+    @foreach (var a in Model.eleAudio.Where(a => a.Artista == (Model.cercato == null ? a.Artista : Model.cercato)).OrderBy(a => a.Titolo))
+    {
+        <tr>
+            <td>@a.Titolo</td>
+            <td>@a.Artista</td>
+            <td>@a.Genere</td>
+            <td>
+                <a asp-page="Details" asp-route-id="@a.Id">Dettagli</a> |
+                <a asp-page="Edit" asp-route-id="@a.Id">Modifica</a> |
+                <a asp-page="Delete" asp-route-id="@a.Id">Cancella</a>
+            </td>
+        </tr>
+    }
+</table>
